@@ -1,0 +1,37 @@
+_block:mkdir_
+mkdir -p ../output/_target_/dig/
+mkdir -p ../output/_target_/sslscan
+mkdir -p ../output/_target_/whois
+mkdir -p ../output/_target_/amass
+mkdir -p ../output/_target_/sublister
+_block:mkdir_
+_blocker_
+
+_block:dig_
+dig _target_ > ../output/_target_/dig/_target_dig.txt
+dig _target_ mx > ../output/_target_/dig/_target_-dig-mx.txt
+dig _target_ txt > ../output/_target_/dig/_target_-dig-txt.txt
+dig _target_ ns > ../output/_target_/dig/_target_-dig-ns.txt
+dig _target_ dkim > ../output/_target_/dig/_target_-dig-dkim.txt
+dig _target_ srv > ../output/_target_/dig/_target_-dig-srv.txt
+dig _target_ spf > ../output/_target_/dig/_target_-dig-spf.txt
+_block:dig_
+_blocker_
+
+_block:whois_
+whois _target_ > ../output/_target_/whois/_target_-whois.txt
+_block:whois_
+_blocker_
+
+_block:sslscan_
+sslscan _target_ > ../output/_target_/sslscan/_target_-sslscan.txt
+_block:sslscan_
+_blocker_
+
+_block:amass_
+amass enum --passive -d _target_ -json ../output/_target_/amass/_target_.json
+wait
+jq .name ../output/_target_/amass/_target_.json  | sed 's/\"//g' | httprobe -c 60 | tee -a ../output/_target_/amass/_target_-domains.txt
+wait
+_block:amass_
+_blocker_
