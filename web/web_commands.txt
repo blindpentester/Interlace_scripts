@@ -1,0 +1,20 @@
+_block:mkdir_
+mkdir -p ../output/_target_/scans/nmap
+mkdir -p ../output/_target_/scans/nikto
+mkdir -p ../output/_target_/dnsenum
+mkdir -p ../output/_target_/gospider
+_block:mkdir_
+_blocker_
+
+_block:gospider_
+sh gospider.sh
+gospider -o ../output/_target_/gospider/_target_-gospider.txt -s "https://_target_/" -c 10 -d 1
+_block:gospider_
+_blocker_
+
+_block:scan_
+nikto --host _target_ > ../output/_target_/scans/nikto/_target_-nikto.txt
+nmap -sV -sC --top-ports 5000 -vv -oA ../output/_target_/scans/nmap/_target_-nmap-top-5000 _target_
+dnsenum --enum -o ../output/_target_/dnsenum/_target_-dnsenum.txt _target_
+_block:scan
+_blocker_
