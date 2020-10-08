@@ -8,7 +8,7 @@ _blocker_
 
 _block:gospider_
 sh gospider.sh
-gospider -o ../output/_target_/gospider/_target_-gospider.txt -s "https://_target_/" -c 10 -d 1
+gospider -o ../output/_target_/gospider/ -s "https://_target_/" -c 10 -d 1
 _block:gospider_
 _blocker_
 
