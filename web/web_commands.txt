@@ -16,5 +16,5 @@ _block:scan_
 nikto --host _target_ > ../output/_target_/scans/nikto/_target_-nikto.txt
 nmap -sV -sC --top-ports 5000 -vv -oA ../output/_target_/scans/nmap/_target_-nmap-top-5000 _target_
 dnsenum --enum -o ../output/_target_/dnsenum/_target_-dnsenum.txt _target_
-_block:scan
+_block:scan_
 _blocker_
