@@ -1,0 +1,30 @@
+_block:mkdir_
+mkdir -p ../../output/_target_/nmap
+mkdir -p ../../output/_target_/dig_whois
+mkdir -p ../../output/_target_/sslscan
+mkdir -p ../../output/_target_/theHarvester
+mkdir -p ../../output/_target_/shodan
+mkdir -p ../../output/_target_/dnsrecon
+mkdir -p ../../output/_target_/sublist3r
+_block:mkdir_
+_blocker_
+
+
+_block:alltherecon_
+dig _host_ -t ns | tee ../../output/_target_/dig_whois/dig-_target_-ns.txt
+dig _host_ -t mx | tee ../../output/_target_/dig_whois/dig-_target_-mx.txt
+dig _host_ -t txt | tee ../../output/_target_/dig_whois/dig-_target_-txt.txt
+dig axfr _host_ | tee ../../output/_target_/dig_whois/dig-_target_-axfr.txt
+whois _host_ | tee ../../output/_target_/dig_whois/WHOIS-_target_.txt
+sslscan _target_ | tee ../../output/_target_/sslscan/_target_-sslscan.txt
+theHarvester -d _target_ -b all -l 500 | tee ../../output/_target_/theHarvester/theHarvester-_target_
+shodan domain _target_ | tee ../../output/_target_/shodan/shodan-_target_-domain.txt
+dnsrecon -d _target_ | tee ../../output/_target_/dnsrecon/DNSRecon-_target_.txt
+dnsrecon -d _target_ -a | tee ../../output/_target_/dnsrecon/DNSRecon-_target_-a.txt
+dnsrecon -d _target_ -s | tee ../../output/_target_/dnsrecon/DNSRecon-_target_-SPF.txt
+dnsrecon -d _target_ -t zonewalk | tee ../../output/_target_/dnsrecon/DNSRecon-_target_-zonewalk.txt
+sublist3r -d _target_ | tee ../../output/_target_/sublist3r/sublist3r-_target_.txt
+_block:alltherecon_
+_blocker_
+
+nmap -sV -sC -p- -vv -n -g 80 -oA ../../output/_target_/nmap/_target_-nmap _target_
