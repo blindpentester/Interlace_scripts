@@ -10,7 +10,8 @@ This is a location where I wanted to share my Interlace scripts/examples for lar
                      your script.sh ready to be called to within a block if you wish it to be used.
 
 ### recon/
-    - Script is set to make directories for nmap, dig_whois, sslscan, theHarvester, shodan (API key required for this to work), dnsrecon, ASN and sublist3r.
+    - Script is set to make directories for nmap, dig_whois, sslscan, theHarvester, shodan 
+      (API key required for this to work), dnsrecon, ASN and sublist3r.
     - Script is intended for collecting information on domain names.
 
 ### OSINT/
@@ -19,6 +20,7 @@ This is a location where I wanted to share my Interlace scripts/examples for lar
     - sublist3r was on this but it was eventually removed.
 
 ### web/
-    - This was setup for mainly digging into http(s) pages.  gospider will spider the page and create output.  Edit script on url bit if not https.
+    - This was setup for mainly digging into http(s) pages.  gospider will spider the page and 
+      create output.  Edit script on url bit if not https.
     - Nikto & nmap scans will run (this can take some time)
     - DNSEnum runs
