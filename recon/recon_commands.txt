@@ -5,6 +5,7 @@ mkdir -p ../../output/_target_/sslscan
 mkdir -p ../../output/_target_/theHarvester
 mkdir -p ../../output/_target_/shodan
 mkdir -p ../../output/_target_/dnsrecon
+mkdir -p ../../output/_target_/asn
 mkdir -p ../../output/_target_/sublist3r
 _block:mkdir_
 _blocker_
@@ -24,6 +25,7 @@ dnsrecon -d _target_ -a | tee ../../output/_target_/dnsrecon/DNSRecon-_target_-a
 dnsrecon -d _target_ -s | tee ../../output/_target_/dnsrecon/DNSRecon-_target_-SPF.txt
 dnsrecon -d _target_ -t zonewalk | tee ../../output/_target_/dnsrecon/DNSRecon-_target_-zonewalk.txt
 sublist3r -d _target_ | tee ../../output/_target_/sublist3r/sublist3r-_target_.txt
+asn -d _target_ | tee ../../output/_target_/asn/_target_-asn.txt
 _block:alltherecon_
 _blocker_
 
