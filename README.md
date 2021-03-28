@@ -15,8 +15,8 @@ This is a location where I wanted to share my Interlace scripts/examples for lar
       `interlace -tL <target list> -cL <command list>`
       
     - Example for running Interlace without scripts
-      `interlace -tL <target list> -c "interlace -tL <target list> -c "sslscan _target_ | tee ./_target_-sslscan.txt"`
-      `interlace -t 192.168.1.1-254 -c "nmap -sV -sC -vv -p- -g 80 -T4 _target_ -oN ./_target_-nmap.txt"`
+`interlace -tL <target list> -c "interlace -tL <target list> -c "sslscan _target_ | tee ./_target_-sslscan.txt"`
+`interlace -t 192.168.1.1-254 -c "nmap -sV -sC -vv -p- -g 80 -T4 _target_ -oN ./_target_-nmap.txt"`
 
 ### recon/
     - Script is set to make directories for nmap, dig_whois, sslscan, theHarvester, shodan 
